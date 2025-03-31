@@ -1,353 +1,393 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社BAN 第7期事業計画 統合版</title>
+  <style>
+    /* 共通スタイル */
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .page {
+      background-color: white;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      padding: 25px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .hidden { display: none; }
+    /* Navigation */
+    .nav {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .nav-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #1abc9c;
+      color: white;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+    .nav-btn:hover {
+      background-color: #16a085;
+    }
+    /* 以下、各ページ固有のスタイル（index.html、step2.html、step3.htmlより） */
+    .title-slide {
+      background: linear-gradient(135deg, #1abc9c, #16a085);
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+    }
+    h1 {
+      font-size: 32px;
+      margin: 0;
+      padding: 0;
+      font-weight: 600;
+    }
+    h2 {
+      font-size: 28px;
+      color: #1abc9c;
+      border-bottom: 2px solid #1abc9c;
+      padding-bottom: 10px;
+      margin-top: 0;
+    }
+    h3 {
+      font-size: 22px;
+      color: #16a085;
+      margin-bottom: 15px;
+    }
+    ul, ol {
+      padding-left: 25px;
+      line-height: 1.6;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .highlight {
+      background-color: rgba(26, 188, 156, 0.15);
+      padding: 15px;
+      border-radius: 5px;
+      border-left: 4px solid #1abc9c;
+      margin: 20px 0;
+    }
+    .key-metric {
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      color: #1abc9c;
+      margin: 20px 0;
+      padding: 15px;
+      background-color: rgba(26, 188, 156, 0.1);
+      border-radius: 8px;
+    }
+    .strategy-box {
+      margin: 15px 0;
+      padding: 15px;
+      background-color: rgba(26, 188, 156, 0.05);
+      border-radius: 5px;
+      border-left: 3px solid #1abc9c;
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      margin: 25px 0 15px 0;
+      padding: 8px 15px;
+      border-radius: 5px;
+      display: inline-block;
+      background-color: #1abc9c;
+    }
+    .section-content {
+      margin: 0 0 20px 0;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: rgba(26, 188, 156, 0.1);
+      border-left: 4px solid #1abc9c;
+    }
+    .bold-text {
+      font-weight: bold;
+      color: #16a085;
+    }
+    .sub-item {
+      margin: 5px 0 10px 25px;
+    }
+    /* リスク管理関連 */
+    .risk-item {
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+    .risk-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .risk-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+    .risk-level {
+      color: white;
+      padding: 3px 15px;
+      border-radius: 3px;
+      font-weight: bold;
+      font-size: 14px;
+      text-align: center;
+    }
+    .high { background-color: #e74c3c; }
+    .medium { background-color: #f39c12; }
+    .impact-title, .measure-title {
+      font-weight: bold;
+      color: #16a085;
+      margin: 15px 0 5px 0;
+    }
+    .footer {
+      background-color: #f2faf8;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+      color: #16a085;
+    }
+    .principles {
+      margin-top: 25px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      border-left: 3px solid #1abc9c;
+    }
+    .principles h3 {
+      color: #16a085;
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;株式会社BAN 第7期事業計画&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Helvetica Neue', Arial, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #333;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: #f5f5f5;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.5;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 90%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.slide {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-top: 6px solid #1abc9c;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 2px 5px rgba(0,0,0,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.title-slide {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, #1abc9c, #16a085);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 50px 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>h1 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 32px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>h2 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 28px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #1abc9c;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 2px solid #1abc9c;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding-bottom: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>h3 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 22px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #16a085;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>ul, ol {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding-left: 25px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.6;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>li {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.highlight {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: rgba(26, 188, 156, 0.15);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-left: 4px solid #1abc9c;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 20px 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.key-metric {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 22px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #1abc9c;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 20px 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: rgba(26, 188, 156, 0.1);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.strategy-box {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 15px 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: rgba(26, 188, 156, 0.05);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-left: 3px solid #1abc9c;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.section-title {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 25px 0 15px 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 8px 15px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: #1abc9c;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.section-content {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 0 20px 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: rgba(26, 188, 156, 0.1);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-left: 4px solid #1abc9c;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.bold-text {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #16a085;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.sub-item {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 5px 0 10px 25px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.table-of-contents {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: rgba(26, 188, 156, 0.05);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 20px 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.toc-item {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.toc-item a {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #16a085;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition: color 0.3s;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.toc-item a:hover {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #1abc9c;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: underline;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* Navigation */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.nav {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.nav-btn {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: #1abc9c;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 10px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.nav-btn:hover {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background-color: #16a085;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 768px) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>max-width: 95%;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>padding: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.slide {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- スライド1: 表紙 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="slide title-slide" id="title"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h1&gt;株式会社BAN&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2 style="color: white; border-bottom: none; padding: 15px 0;"&gt;第7期事業計画 (2025年度～)&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- スライド2: 目次 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="slide" id="toc"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;目次&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="table-of-contents"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="toc-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;a href="#plan-overview"&gt;1. 事業計画概要&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="toc-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;a href="#budget-overview"&gt;2. 2025年度予算概要&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="toc-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;a href="#profit-basis"&gt;3. 利益予算の根拠&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="toc-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;a href="#problems"&gt;4. 現状の課題と負のスパイラル&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- スライド3: 事業計画概要 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="slide" id="plan-overview"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;事業計画概要&lt;/h2&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="section-title"&gt;1. 目的（なぜそれをするのか）&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="section-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;span class="bold-text"&gt;企業の存続と持続的成長の実現&lt;/span&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>市場環境の厳しさを踏まえ、現状の&lt;span class="bold-text"&gt;「負のスパイラル」&lt;/span&gt;を断ち切り、全社が連動する&lt;span class="bold-text"&gt;正のスパイラル（好循環）&lt;/span&gt;を実現する。&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;span class="bold-text"&gt;組織の健全化と競争力強化&lt;/span&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="bold-text"&gt;正当な評価制度&lt;/span&gt;と透明な報酬体系を基盤とし、従業員のモチベーションを高め、&lt;span class="bold-text"&gt;サービス品質&lt;/span&gt;と&lt;span class="bold-text"&gt;店舗運営力&lt;/span&gt;の向上を図る。&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="section-title"&gt;2. 目標（何を達成するのか）&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="section-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;span class="bold-text"&gt;営業利益予算 1億300万円 の達成&lt;/span&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;span class="bold-text"&gt;根拠&lt;/span&gt;：BANは「&lt;span class="bold-text"&gt;強い店舗の集合体&lt;/span&gt;」を目指す。&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>強いお店の定義は、&lt;span class="bold-text"&gt;顧客満足度が高い&lt;/span&gt;こと、給与が一般の1.5倍、そして営業利益が3倍という基準に基づいており、これを首都圏の平均飲食店データから算出した数字となる。&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;span class="bold-text"&gt;従業員と顧客の満足度向上&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="sub-item"&gt;• 従業員：AIを活用した評価制度により店長・スタッフの成長促進と離職率の低下。&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="sub-item"&gt;• 顧客：定期アンケート（11段階NPS、回答率30%以上、満足度80%以上）によるサービス改善。&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="section-title"&gt;3. 手段（どのように実施するのか）&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="section-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;span class="bold-text"&gt;評価・報酬制度の改革&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="sub-item"&gt;• &lt;span class="bold-text"&gt;AI活用の評価制度&lt;/span&gt;：学習済み評価基準に基づき、社員・アルバイトを自動査定し、リアルタイムでフィードバックを提供。&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="sub-item"&gt;• &lt;span class="bold-text"&gt;正当な報酬体系&lt;/span&gt;：店長給 &lt;span class="bold-text"&gt;50万円&lt;/span&gt;、アルバイト時給 &lt;span class="bold-text"&gt;最大2000円／平均1700円&lt;/span&gt; と連動し、正しい競争環境を構築。&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;span class="bold-text"&gt;現場力強化のための視察活動&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="sub-item"&gt;• 毎月の社員・店長による繁盛店視察&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="sub-item"&gt;• 毎月のアルバイト視察&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="sub-item"&gt;• 年4回の地方視察（長崎、福岡、沖縄、高知）&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- スライド4: 2025年度予算概要 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="slide" id="budget-overview"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;2025年度予算概要&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="key-metric"&gt;店舗営業利益予算: 1億300万円&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p style="text-align: center; font-size: 14px; margin-top: -10px; color: #666;"&gt;※本部費は別途計上&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;投資配分&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;人材育成（店長教育、アルバイトスタッフ）&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;顧客満足度の向上（アンケート回収率30％、NPS8〜10獲得率80％）&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;人時売上高向上による生産性アップ&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;AIツール導入による店長業務サポートと公正な人材評価&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;オリジナルのAIツール導入による各種業務支援&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="highlight"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;数値目標&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul style="margin-top: 10px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;strong&gt;客単価:&lt;/strong&gt; 店舗毎の設定 4,000〜6,000円&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;strong&gt;人時売上高:&lt;/strong&gt; 8,000円&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;strong&gt;社員平均給与:&lt;/strong&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;2024年度: 387,500円&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;2025年度: 418,000円（実行済み）&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;2026年度: 462,000円（目標）&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;strong&gt;アルバイト平均時給:&lt;/strong&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;2024年度: 1,343円&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;2025年度: 1,574円（目標）&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- スライド5: 利益予算の根拠 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="slide" id="profit-basis"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;利益予算の根拠&lt;/h2&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="highlight"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;BANの成長戦略の方向性として、無理した多店舗展開ではなく強い店舗の集合体として成長していく方針です。全ての計画はこの土台の上に成り立ちます。&lt;/strong&gt;&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="strategy-box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;強い店舗の定義&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;顧客満足度を高いレベルで維持&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;従業員が一般的な給与の&lt;strong&gt;1.5倍&lt;/strong&gt;獲得&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;店舗利益は通常の&lt;strong&gt;3倍&lt;/strong&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="strategy-box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;利益算出の考え方&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;首都圏の坪売上平均: &lt;strong&gt;218,000円&lt;/strong&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;賃料坪単価想定: &lt;strong&gt;25,000円&lt;/strong&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;既存店5店舗の坪数・家賃を考慮&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;平均坪売上からの利益の&lt;strong&gt;3倍&lt;/strong&gt;を目標設定&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;必要売上高を季節指数を加味して試算&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="key-metric"&gt;合計利益目標: 1億300万円&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- スライド6: 現状の課題と負のスパイラル --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="slide" id="problems"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;現状の課題と負のスパイラルからの転換&lt;/h2&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div style="text-align:center; margin: 15px 0;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" style="max-width: 100%; height: auto;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;rect width="800" height="500" fill="white" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;circle cx="400" cy="250" r="180" fill="#ffeeee" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;path d="M400,100 C520,100 550,170 550,250 C550,330 520,400 400,400 C280,400 250,330 250,250 C250,170 280,140 320,140"<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>stroke="#e74c3c" stroke-width="5" fill="none" stroke-linecap="round" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;polygon points="310,130 330,145 335,125" fill="#e74c3c" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;rect x="320" y="70" width="160" height="60" rx="10" ry="10" fill="#e74c3c" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;text x="400" y="100" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white"&gt;評価の不透明さ&lt;/text&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;text x="400" y="120" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white"&gt;適正評価の欠如&lt;/text&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;rect x="530" y="220" width="160" height="60" rx="10" ry="10" fill="#e74c3c" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;text x="610" y="250" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white"&gt;モチベーション低下&lt;/text&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;text x="610" y="270" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white"&gt;やる気の喪失&lt;/text&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;rect x="320" y="370" width="160" height="60" rx="10" ry="10" fill="#e74c3c" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;text x="400" y="400" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white"&gt;サービス品質低下&lt;/text&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;text x="400" y="420" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white"&gt;顧客満足度の低下&lt;/text&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;rect x="110" y="220" width="160" height="60" rx="10" ry="10" fill="#e74c3c" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;text x="190" y="250" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white"&gt;顧客離れ・売上減少&lt;/text&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;text x="190" y="270" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white"&gt;業績悪化&lt;/text&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;text x="200" y="440" font-family="Arial, sans-serif" font-size="14" font-style="italic" fill="#5d3e9e"&gt;結果として&lt;/text&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;rect x="250" y="450" width="300" height="40" rx="20" ry="20" fill="#5d3e9e" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;text x="400" y="475" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white"&gt;優秀な人材不足と競争社会の欠如&lt;/text&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;path d="M400,430 L400,450" stroke="#5d3e9e" stroke-width="3" stroke-dasharray="5,3" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;polygon points="400,450 395,440 405,440" fill="#5d3e9e" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="highlight"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;評価の不透明さを起点とした負のスパイラルが連鎖し、優秀な人材不足と競争社会の欠如を招いています&lt;/strong&gt;&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;生き残りのためには、このスパイラルを断ち切る抜本的な改革が急務です&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Navigation: index.html → step2.html --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="nav"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="nav-btn" href="step2.html"&gt;次へ&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+  <div class="container">
+    <!-- ページ1：index.html の内容 -->
+    <div id="page1" class="page">
+      <!-- 表紙 -->
+      <div class="slide title-slide" id="slide-1">
+          <h1>株式会社BAN</h1>
+          <h2 style="color: white; border-bottom: none; padding: 15px 0;">第7期事業計画 (2025年度～)</h2>
+      </div>
+      <!-- 目次 -->
+      <div class="slide" id="slide-2">
+          <h2>目次</h2>
+          <ol>
+              <li>事業計画概要</li>
+              <li>2025年度予算概要</li>
+              <li>利益予算の根拠</li>
+              <li>現状の課題と負のスパイラル</li>
+              <li>経営戦略（ヒト・モノ・カネ）</li>
+              <li>AI活用による業務改善</li>
+              <li>リスク管理と対策</li>
+          </ol>
+      </div>
+      <!-- 事業計画概要 -->
+      <div class="slide" id="slide-3">
+          <h2>事業計画概要</h2>
+          <div class="section-title">1. 目的（なぜそれをするのか）</div>
+          <div class="section-content">
+              <ul>
+                  <li><span class="bold-text">企業の存続と持続的成長の実現</span><br>
+                  市場環境の厳しさを踏まえ、現状の<span class="bold-text">「負のスパイラル」</span>を断ち切り、全社が連動する<span class="bold-text">正のスパイラル（好循環）</span>を実現する。</li>
+                  <li><span class="bold-text">組織の健全化と競争力強化</span><br>
+                  <span class="bold-text">正当な評価制度</span>と透明な報酬体系を基盤とし、従業員のモチベーションを高め、<span class="bold-text">サービス品質</span>と<span class="bold-text">店舗運営力</span>の向上を図る。</li>
+              </ul>
+          </div>
+          <div class="section-title">2. 目標（何を達成するのか）</div>
+          <div class="section-content">
+              <ul>
+                  <li><span class="bold-text">営業利益予算 1億300万円 の達成</span></li>
+                  <li><span class="bold-text">根拠</span>：BANは「<span class="bold-text">強い店舗の集合体</span>」を目指す。<br>
+                  強いお店の定義は、<span class="bold-text">顧客満足度が高い</span>こと、給与が一般の1.5倍、そして営業利益が3倍という基準に基づいており、これを首都圏の平均飲食店データから算出した数字となる。</li>
+                  <li><span class="bold-text">従業員と顧客の満足度向上</span>
+                      <div class="sub-item">• 従業員：AIを活用した評価制度により店長・スタッフの成長促進と離職率の低下。</div>
+                      <div class="sub-item">• 顧客：定期アンケート（11段階NPS、回答率30%以上、満足度80%以上）によるサービス改善。</div>
+                  </li>
+              </ul>
+          </div>
+          <div class="section-title">3. 手段（どのように実施するのか）</div>
+          <div class="section-content">
+              <ul>
+                  <li><span class="bold-text">評価・報酬制度の改革</span>
+                      <div class="sub-item">• <span class="bold-text">AI活用の評価制度</span>：学習済み評価基準に基づき、社員・アルバイトを自動査定し、リアルタイムでフィードバックを提供。</div>
+                      <div class="sub-item">• <span class="bold-text">正当な報酬体系</span>：店長給 <span class="bold-text">50万円</span>、アルバイト時給 <span class="bold-text">最大2000円／平均1700円</span> と連動し、正しい競争環境を構築。</div>
+                  </li>
+                  <li><span class="bold-text">現場力強化のための視察活動</span>
+                      <div class="sub-item">• 毎月の社員・店長による繁盛店視察</div>
+                      <div class="sub-item">• 毎月のアルバイト視察</div>
+                      <div class="sub-item">• 年4回の地方視察（長崎、福岡、沖縄、高知）</div>
+                  </li>
+              </ul>
+          </div>
+      </div>
+      <!-- 2025年度予算概要 -->
+      <div class="slide" id="slide-4">
+          <h2>2025年度予算概要</h2>
+          <div class="key-metric">店舗営業利益予算: 1億300万円</div>
+          <p style="text-align: center; font-size: 14px; margin-top: -10px; color: #666;">※本部費は別途計上</p>
+          <h3>投資配分</h3>
+          <ul>
+              <li>人材育成（店長教育、アルバイトスタッフ）</li>
+              <li>顧客満足度の向上（アンケート回収率30％、NPS8〜10獲得率80％）</li>
+              <li>人時売上高向上による生産性アップ</li>
+              <li>AIツール導入による店長業務サポートと公正な人材評価</li>
+              <li>オリジナルのAIツール導入による各種業務支援</li>
+          </ul>
+          <div class="highlight">
+              <h3>数値目標</h3>
+              <ul style="margin-top: 10px;">
+                  <li><strong>客単価:</strong> 店舗毎の設定 4,000〜6,000円</li>
+                  <li><strong>人時売上高:</strong> 8,000円</li>
+                  <li><strong>社員平均給与:</strong>
+                      <ul>
+                          <li>2024年度: 387,500円</li>
+                          <li>2025年度: 418,000円（実行済み）</li>
+                          <li>2026年度: 462,000円（目標）</li>
+                      </ul>
+                  </li>
+                  <li><strong>アルバイト平均時給:</strong>
+                      <ul>
+                          <li>2024年度: 1,343円</li>
+                          <li>2025年度: 1,574円（目標）</li>
+                      </ul>
+                  </li>
+              </ul>
+          </div>
+      </div>
+      <!-- 利益予算の根拠 -->
+      <div class="slide" id="slide-5">
+          <h2>利益予算の根拠</h2>
+          <div class="highlight">
+              <p><strong>BANの成長戦略の方向性として、無理した多店舗展開ではなく<strong>強い店舗の集合体</strong>として成長していく方針です。全ての計画はこの土台の上に成り立ちます。</strong></p>
+          </div>
+          <div class="strategy-box">
+              <h3>強い店舗の定義</h3>
+              <ul>
+                  <li>顧客満足度を高いレベルで維持</li>
+                  <li>従業員が一般的な給与の<strong>1.5倍</strong>獲得</li>
+                  <li>店舗利益は通常の<strong>3倍</strong></li>
+              </ul>
+          </div>
+          <div class="strategy-box">
+              <h3>利益算出の考え方</h3>
+              <ul>
+                  <li>首都圏の坪売上平均: <strong>218,000円</strong></li>
+                  <li>賃料坪単価想定: <strong>25,000円</strong></li>
+                  <li>既存店5店舗の坪数・家賃を考慮</li>
+                  <li>平均坪売上からの利益の<strong>3倍</strong>を目標設定</li>
+                  <li>必要売上高を季節指数を加味して試算</li>
+              </ul>
+          </div>
+          <div class="key-metric">合計利益目標: 1億300万円</div>
+      </div>
+      <!-- 現状の課題と負のスパイラル -->
+      <div class="slide" id="slide-6">
+          <h2>現状の課題と負のスパイラルからの転換</h2>
+          <div style="text-align:center; margin: 15px 0;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" style="max-width: 100%; height: auto;">
+                <rect width="800" height="500" fill="white" />
+                <circle cx="400" cy="250" r="180" fill="#ffeeee" />
+                <path d="M400,100 C520,100 550,170 550,250 C550,330 520,400 400,400 C280,400 250,330 250,250 C250,170 280,140 320,140" 
+                      stroke="#e74c3c" stroke-width="5" fill="none" stroke-linecap="round" />
+                <polygon points="310,130 330,145 335,125" fill="#e74c3c" />
+                <rect x="320" y="70" width="160" height="60" rx="10" ry="10" fill="#e74c3c" />
+                <text x="400" y="100" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">評価の不透明さ</text>
+                <text x="400" y="120" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">適正評価の欠如</text>
+                <rect x="530" y="220" width="160" height="60" rx="10" ry="10" fill="#e74c3c" />
+                <text x="610" y="250" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">モチベーション低下</text>
+                <text x="610" y="270" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">やる気の喪失</text>
+                <rect x="320" y="370" width="160" height="60" rx="10" ry="10" fill="#e74c3c" />
+                <text x="400" y="400" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">サービス品質低下</text>
+                <text x="400" y="420" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">顧客満足度の低下</text>
+                <rect x="110" y="220" width="160" height="60" rx="10" ry="10" fill="#e74c3c" />
+                <text x="190" y="250" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">顧客離れ・売上減少</text>
+                <text x="190" y="270" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">業績悪化</text>
+                <text x="200" y="440" font-family="Arial, sans-serif" font-size="14" font-style="italic" fill="#5d3e9e">結果として</text>
+                <rect x="250" y="450" width="300" height="40" rx="20" ry="20" fill="#5d3e9e" />
+                <text x="400" y="475" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">優秀な人材不足と競争社会の欠如</text>
+                <path d="M400,430 L400,450" stroke="#5d3e9e" stroke-width="3" stroke-dasharray="5,3" />
+                <polygon points="400,450 395,440 405,440" fill="#5d3e9e" />
+              </svg>
+          </div>
+          <div class="highlight">
+              <p><strong>評価の不透明さを起点とした負のスパイラルが連鎖し、優秀な人材不足と競争社会の欠如を招いています</strong></p>
+              <p>生き残りのためには、このスパイラルを断ち切る抜本的な改革が急務です</p>
+          </div>
+          <div class="footer">
+              リスクは脅威ではなく、成長のための学習機会として活用します
+          </div>
+          <div class="page-number">11/12</div>
+      </div>
+    </div>
+
+    <!-- Navigation（全体共通） -->
+    <div class="nav">
+      <button class="nav-btn" id="prevBtn" onclick="prevPage()">前へ</button>
+      <button class="nav-btn" id="nextBtn" onclick="nextPage()">次へ</button>
+    </div>
+  </div>
+  <script>
+    var currentPage = 1;
+    function showPage(pageNumber) {
+      for (var i = 1; i <= 3; i++) {
+        document.getElementById("page" + i).classList.add("hidden");
+      }
+      document.getElementById("page" + pageNumber).classList.remove("hidden");
+      currentPage = pageNumber;
+      updateNavButtons();
+    }
+    function nextPage() {
+      if (currentPage < 3) { showPage(currentPage + 1); }
+    }
+    function prevPage() {
+      if (currentPage > 1) { showPage(currentPage - 1); }
+    }
+    function updateNavButtons() {
+      document.getElementById("prevBtn").disabled = (currentPage === 1);
+      document.getElementById("nextBtn").disabled = (currentPage === 3);
+    }
+    showPage(1);
+    // コピー用関数（step2.html内のスケジュールボタン対応）
+    function copyScheduleLink() {
+      const scheduleUrl = "https://docs.google.com/spreadsheets/d/1BJLy0wCGS8qBxQej4eFHVBqEcPwnZUVV/edit?gid=150580019#gid=150580019";
+      navigator.clipboard.writeText(scheduleUrl)
+      .then(() => {
+        const msg = document.getElementById('copyMsg');
+        if (msg) {
+          msg.textContent = "URLをクリップボードにコピーしました。ブラウザに貼り付けてください。";
+          msg.style.display = "block";
+          setTimeout(() => { msg.style.display = "none"; }, 3000);
+        }
+      })
+      .catch(err => {
+        alert("URLのコピーに失敗しました: " + scheduleUrl);
+      });
+    }
+  </script>
 </body>
 </html>
